@@ -8,59 +8,30 @@ import java.util.ArrayList;
  */
 public class Muro
 {
-    private ArrayList<EntradaTexto> mensajes;
-    private ArrayList<EntradaFoto> fotos;
-    private ArrayList<EntradaUnionAGrupo> unionesAGrupo;
+    private ArrayList<Entrada> entradas;
     
-
     /**
      * Constructor for objects of class Muro
      */
     public Muro()
     {
-        mensajes = new ArrayList<>();
-        fotos = new ArrayList<>();
-        unionesAGrupo = new ArrayList<>();
+        entradas = new ArrayList<>();
     }
 
  
-    public void addEntradaTexto(EntradaTexto entradaTexto) 
+    public void addEntrada(Entrada entrada) 
     {
-        mensajes.add(entradaTexto);
-    }
-    
-    public void addEntradaFoto(EntradaFoto entradaFoto) 
-    {
-        fotos.add(entradaFoto);
-    }    
-    
-    public void addEntradaUnionAGrupo(EntradaUnionAGrupo entradaUnionAGrupo) 
-    {
-        unionesAGrupo.add(entradaUnionAGrupo);
-    }      
-    
+        entradas.add(entrada);
+    } 
     
     public String toString()
     {
         String cadenaADevolver = "";
         
-        for (EntradaTexto entrada : mensajes)
+        for (Entrada entrada : entradas)
         {
             cadenaADevolver += entrada + "\n";
-        }
-
-        
-        for (EntradaFoto entrada : fotos)
-        {
-            cadenaADevolver += entrada + "\n";
-        }  
-
-        for (EntradaUnionAGrupo entrada : unionesAGrupo)
-        {
-            cadenaADevolver += entrada + "\n";
-        }  
-        
-        
+        }        
         return cadenaADevolver;
     }
     
@@ -69,6 +40,38 @@ public class Muro
         System.out.println(this);
     }
     
+    public void verCantidadDatosPorEntrada()
+    {
+        for(Entrada entrada : entradas)
+        {
+            System.out.println(entrada.getCantidadDeDatosAsociadosALaEntrada());  
+        }
+    }
+    
+    public void mostrarDatosExclusivosEntradasFiltradas(String tipoEntrada, String autor)
+    {
+        for(Entrada entrada : entradas)
+        {
+            if(entrada.getClass().getSimpleName() == tipoEntrada && autor == entrada.getUsuario())
+            {
+               if(entrada instanceof EntradaTexto)
+               {
+                   System.out.println("Usuario: " + autor);
+                   ((EntradaTexto)entrada).mostrarDatosExclusivos();
+               }
+               if(entrada instanceof EntradaFoto)
+               {
+                   System.out.println("Usuario: " + autor);
+                   ((EntradaFoto)entrada).mostrarDatosExclusivos();
+               }
+               if(entrada instanceof EntradaUnionAGrupo)
+               {
+                   System.out.println("Usuario: " + autor);
+                   ((EntradaUnionAGrupo)entrada).mostrarDatosExclusivos();
+               }
+            }
+        }
+    }
 }
 
 

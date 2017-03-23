@@ -31,4 +31,20 @@ public class EntradaConComentarios extends Entrada
         return comentarios;
     }    
 
+    public String toString()
+    {     
+        String cadenaADevolver = "";
+        cadenaADevolver += super.toString();
+        if (getComentarios().isEmpty()) {
+            cadenaADevolver += "La entrada no tiene comentarios." + "\n";
+        }
+        else {
+            //Se recopilan los comentarios
+            cadenaADevolver += "Comentarios:\n";
+            for (String comentario : getComentarios()) {
+                cadenaADevolver += comentario + "\n";
+            }
+        }   
+        return cadenaADevolver;
+    }
 }

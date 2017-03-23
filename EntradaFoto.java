@@ -33,35 +33,26 @@ public class EntradaFoto extends EntradaConComentarios
     public String toString()
     {
         String cadenaADevolver = "";
-        cadenaADevolver += "Usuario: " + getUsuario() + "\n";
-        cadenaADevolver += titulo + "\n";
+        
+        cadenaADevolver += super.toString();
+        cadenaADevolver +=  titulo + "\n";
         cadenaADevolver += urlImagen + "\n";
-        cadenaADevolver += getCantidadMeGusta() + " me gusta";
-        
-        long segundosQueHanPasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
-        long minutosQueHanPasadoDesdeCreacion = segundosQueHanPasadoDesdeCreacion / 60;
-        long segundosResiduales = segundosQueHanPasadoDesdeCreacion % 60;
-        
-        cadenaADevolver += "Hace ";
-        if (minutosQueHanPasadoDesdeCreacion > 0) {
-            cadenaADevolver += minutosQueHanPasadoDesdeCreacion + " minutos ";
-        }
-        cadenaADevolver += segundosResiduales + " segundos.\n";       
-        
-        if (getComentarios().isEmpty()) {
-            cadenaADevolver += "La entrada no tiene comentarios.";
-        }
-        else {
-            //Se recopilan los comentarios
-            cadenaADevolver += "Comentarios:\n";
-            for (String comentario : getComentarios()) {
-                cadenaADevolver += comentario + "\n";
-            }
-        }   
-        
+
         return cadenaADevolver;
     }
     
-    
+    public void mostrar()
+    {
+        System.out.println(this);
+    }
 
+    public int getCantidadDeDatosAsociadosALaEntrada()
+    {
+        return 6;
+    }
+    
+    public void mostrarDatosExclusivos()
+    {        
+        System.out.println("URL: " + urlImagen + "\n" + "Titulo: " + titulo + "\n");      
+    }
 }
