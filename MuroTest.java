@@ -13,11 +13,6 @@ import org.junit.Test;
  */
 public class MuroTest
 {
-    private Muro muro1;
-    private EntradaFoto entradaF1;
-    private EntradaTexto entradaT1;
-    private EntradaUnionAGrupo entradaU1;
-
     /**
      * Default constructor for test class MuroTest
      */
@@ -33,13 +28,6 @@ public class MuroTest
     @Before
     public void setUp()
     {
-        muro1 = new Muro();
-        entradaF1 = new EntradaFoto("mike", "afsaf", "adsdA");
-        entradaT1 = new EntradaTexto("mike", "adsdA");
-        entradaU1 = new EntradaUnionAGrupo("mike", "gays");
-        muro1.addEntrada(entradaF1);
-        muro1.addEntrada(entradaT1);
-        muro1.addEntrada(entradaU1);
     }
 
     /**
@@ -51,4 +39,26 @@ public class MuroTest
     public void tearDown()
     {
     }
+
+    @Test
+    public void testCommit2()
+    {
+        Muro muro2 = new Muro();
+        EntradaUnionAGrupo entradaU3 = new EntradaUnionAGrupo("Aitor", "DAM");
+        EntradaUnionAGrupo entradaU4 = new EntradaUnionAGrupo("Carlos", "DAM");
+        EntradaTexto entradaT3 = new EntradaTexto("Aitor", "Hola");
+        EntradaTexto entradaT4 = new EntradaTexto("Carlos", "Adios");
+        EntradaFoto entradaF3 = new EntradaFoto("Aitor", "http://jhabsd", "vacaciones");
+        EntradaFoto entradaF4 = new EntradaFoto("Carlos", "http://jhabsd", "vacaciones");
+        muro2.addEntrada(entradaU3);
+        muro2.addEntrada(entradaU4);
+        muro2.addEntrada(entradaT3);
+        muro2.addEntrada(entradaT4);
+        muro2.addEntrada(entradaF3);
+        muro2.addEntrada(entradaF4);
+        muro2.mostrarDatosExclusivosEntradasFiltradas("EntradaTexto", "Carlos");
+        muro2.mostrarDatosExclusivosEntradasFiltradas("EntradaFoto", "Aitor");
+        muro2.mostrarDatosExclusivosEntradasFiltradas("EntradaUnionAGrupo", "Carlos");
+    }
 }
+
