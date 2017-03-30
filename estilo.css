@@ -1,0 +1,21 @@
+body{ 
+	background: #144672;
+} 
+h1{ 
+	color: #FFFFFF;
+	text-align: center;
+}
+
+p{
+	color: #FFFFFF;
+}
+
+textarea{
+	background: #E6E6E6;
+}
+
+td{
+	background-color: #2E7730;	
+	text-align: center;
+	color: white;
+}

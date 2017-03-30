@@ -34,7 +34,7 @@ public class Muro
         
         for (Entrada entrada : entradas)
         {
-            cadenaADevolver += entrada + "\n";
+            cadenaADevolver += entrada + "\n</br>";
         }        
         return cadenaADevolver;
     }
@@ -83,7 +83,7 @@ public class Muro
     {
         Runtime r = Runtime.getRuntime();
         try{
-            r.exec("C:/Program Files (x86)/Google/Chrome/Application" + "C:/Users/alumno/Desktop/red-social-hecho-en-clase/Muro.html");
+            r.exec("C:/Program Files (x86)/Google/Chrome/Application/Chrome.exe" + " C:/Users/alumno/Desktop/red-social-hecho-en-clase/Muro.html");
         }
         catch(IOException excepcion){
             System.out.println(excepcion.toString());
@@ -110,7 +110,7 @@ public class Muro
     public String cabeceraPagina()
     {
         String cabecera = "";
-        cabecera += "<!DOCTYPE html><html lang=\"es\"><head><title>Barisi</title><body><h1>Barisi</h1>";
+        cabecera += "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"><html><head><title>Barisi</title><link rel=\"stylesheet\" type=\"text/css\" href=\"estilo.css\" media=\"screen\"/></head><body><h1>BARISI</h1>";
         return cabecera;
     }
     
@@ -118,7 +118,7 @@ public class Muro
     {
         String muro = "";
         for(Entrada entrada : entradas){
-             muro += "<p>" + entrada + "</p>";
+             muro += "<table align=\"center\" border=\"1px\" bordercolor=\"white\"><td>" + entrada + "</br><button align=\"center\">Me gusta</button><button align=\"center\">Compartir</button><button align=\"center\">Comentar</button></td></table></br></br>";
         }
         return muro;
     }
@@ -126,7 +126,7 @@ public class Muro
     public String footerPagina()
     {
         String footer = "";
-        footer += "</body></html>";
+        footer += "<p>Deja tu comentario sobre la página:</p><textarea rows=\"5\" cols=\"50\">Escribe tu comentario...</textarea></body></html>";
         return footer;
     }
 }
