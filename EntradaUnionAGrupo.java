@@ -25,7 +25,7 @@ public class EntradaUnionAGrupo extends Entrada
         String cadenaADevolver = "";
         cadenaADevolver += super.toString();
         cadenaADevolver += "El usuario " + getUsuario();
-        cadenaADevolver += " se ha unido al grupo " + grupo + "\n";        
+        cadenaADevolver += " se ha unido al grupo " + grupo + "\n" + "</br>";        
         
         return cadenaADevolver;        
     }
@@ -42,6 +42,6 @@ public class EntradaUnionAGrupo extends Entrada
     
     public void mostrarDatosExclusivos()
     {        
-        System.out.println("El usuario se unio al grupo: " + grupo + "\n");
+        System.out.println("El usuario se unio al grupo: " + grupo + "\n" + "</br>");
     }
 }

@@ -35,8 +35,8 @@ public class EntradaFoto extends EntradaConComentarios
         String cadenaADevolver = "";
         
         cadenaADevolver += super.toString();
-        cadenaADevolver +=  titulo + "\n";
-        cadenaADevolver += urlImagen + "\n";
+        cadenaADevolver +=  titulo + "\n" + "</br>";
+        cadenaADevolver += urlImagen + "\n" + "</br>";
 
         return cadenaADevolver;
     }
@@ -53,6 +53,6 @@ public class EntradaFoto extends EntradaConComentarios
     
     public void mostrarDatosExclusivos()
     {        
-        System.out.println("URL: " + urlImagen + "\n" + "Titulo: " + titulo + "\n");      
+        System.out.println("URL: " + urlImagen + "\n" + "</br>" + "Titulo: " + titulo + "\n" + "</br>");      
     }
 }

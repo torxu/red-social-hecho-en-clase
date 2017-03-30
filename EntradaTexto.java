@@ -27,7 +27,7 @@ public class EntradaTexto extends EntradaConComentarios
     {
         String cadenaADevolver = "";
         cadenaADevolver += super.toString();
-        cadenaADevolver +=  mensaje + "\n";
+        cadenaADevolver +=  mensaje + "\n" + "</br>";
         
         return cadenaADevolver;
     }    
@@ -44,7 +44,7 @@ public class EntradaTexto extends EntradaConComentarios
     
     public void mostrarDatosExclusivos()
     {        
-        System.out.println("Mensaje: " + mensaje + "\n");        
+        System.out.println("Mensaje: " + mensaje + "\n" + "</br>");        
     }
 }
 

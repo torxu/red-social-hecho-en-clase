@@ -39,8 +39,8 @@ public class Entrada
     public String toString()
     {
         String cadenaADevolver = "";
-        cadenaADevolver += "Usuario: " + getUsuario() + "\n";
-        cadenaADevolver += getCantidadMeGusta() + " me gusta\n";
+        cadenaADevolver += "Usuario: " + getUsuario() + "\n" + "</br>";
+        cadenaADevolver += getCantidadMeGusta() + " me gusta\n" + "</br>";
         
         long segundosQueHanPasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
         long minutosQueHanPasadoDesdeCreacion = segundosQueHanPasadoDesdeCreacion / 60;
@@ -50,7 +50,7 @@ public class Entrada
         if (minutosQueHanPasadoDesdeCreacion > 0) {
             cadenaADevolver += minutosQueHanPasadoDesdeCreacion + " minutos ";
         }
-        cadenaADevolver += segundosResiduales + " segundos.\n";       
+        cadenaADevolver += segundosResiduales + " segundos.\n" + "</br>";       
         
         return cadenaADevolver;
     }

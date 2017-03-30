@@ -13,6 +13,13 @@ import org.junit.Test;
  */
 public class MuroTest
 {
+    private Muro muro1;
+    private EntradaTexto entradaT1;
+    private EntradaFoto entradaF1;
+    private EntradaUnionAGrupo entradaU1;
+
+    
+
     /**
      * Default constructor for test class MuroTest
      */
@@ -28,6 +35,13 @@ public class MuroTest
     @Before
     public void setUp()
     {
+        muro1 = new Muro();
+        entradaT1 = new EntradaTexto("Aitor", "da");
+        entradaF1 = new EntradaFoto("Aitor", "http:/7bdjahbD", "vacaciones");
+        entradaU1 = new EntradaUnionAGrupo("Aitor", "DAM");
+        muro1.addEntrada(entradaT1);
+        muro1.addEntrada(entradaF1);
+        muro1.addEntrada(entradaU1);
     }
 
     /**

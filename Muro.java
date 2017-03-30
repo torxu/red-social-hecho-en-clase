@@ -1,4 +1,6 @@
-import java.util.ArrayList;
+import java.util.*;
+import java.io.*;
+import java.nio.file.*;
 
 /**
  * Write a description of class Muro here.
@@ -9,6 +11,7 @@ import java.util.ArrayList;
 public class Muro
 {
     private ArrayList<Entrada> entradas;
+    private File paginaMuro;
     
     /**
      * Constructor for objects of class Muro
@@ -16,6 +19,7 @@ public class Muro
     public Muro()
     {
         entradas = new ArrayList<>();
+        paginaMuro = new File("Muro.html");
     }
 
  
@@ -52,25 +56,78 @@ public class Muro
     {
         for(Entrada entrada : entradas)
         {
-            if(entrada.getClass().getSimpleName() == tipoEntrada && autor == entrada.getUsuario())
+            if(entrada.getClass().getSimpleName().equals(tipoEntrada) || tipoEntrada == null)
             {
-               if(entrada instanceof EntradaTexto)
-               {
-                   System.out.println("Usuario: " + autor);
-                   ((EntradaTexto)entrada).mostrarDatosExclusivos();
-               }
-               if(entrada instanceof EntradaFoto)
-               {
-                   System.out.println("Usuario: " + autor);
-                   ((EntradaFoto)entrada).mostrarDatosExclusivos();
-               }
-               if(entrada instanceof EntradaUnionAGrupo)
-               {
-                   System.out.println("Usuario: " + autor);
-                   ((EntradaUnionAGrupo)entrada).mostrarDatosExclusivos();
-               }
+               if(entrada.getUsuario().equals(autor) || autor == null){
+                    if(entrada instanceof EntradaTexto)
+                    {
+                        System.out.println("Usuario: " + autor);
+                        ((EntradaTexto)entrada).mostrarDatosExclusivos();
+                    }
+                    else if(entrada instanceof EntradaFoto)
+                    {
+                        System.out.println("Usuario: " + autor);
+                        ((EntradaFoto)entrada).mostrarDatosExclusivos();
+                    }
+                    else if(entrada instanceof EntradaUnionAGrupo)
+                    {
+                       System.out.println("Usuario: " + autor);
+                       ((EntradaUnionAGrupo)entrada).mostrarDatosExclusivos();
+                    }
+                }
             }
         }
+    }
+    
+    public void mostrarMuroEnNavegador()
+    {
+        Runtime r = Runtime.getRuntime();
+        try{
+            r.exec("C:/Program Files (x86)/Google/Chrome/Application" + "C:/Users/alumno/Desktop/red-social-hecho-en-clase/Muro.html");
+        }
+        catch(IOException excepcion){
+            System.out.println(excepcion.toString());
+        }
+    }
+    
+    public File diseñoPagina()
+    {
+        Path ruta = Paths.get("C:/Users/alumno/Desktop/red-social-hecho-en-clase/Muro.html");
+       
+        try{
+                BufferedWriter paginaMuro = Files.newBufferedWriter(ruta);
+                paginaMuro.write(cabeceraPagina() + muroPagina() + footerPagina());
+                paginaMuro.close();
+        }
+        catch(IOException excepcion){
+                System.out.println(excepcion.toString());
+        }
+    
+        
+        return paginaMuro;
+    }
+    
+    public String cabeceraPagina()
+    {
+        String cabecera = "";
+        cabecera += "<!DOCTYPE html><html lang=\"es\"><head><title>Barisi</title><body><h1>Barisi</h1>";
+        return cabecera;
+    }
+    
+    public String muroPagina()
+    {
+        String muro = "";
+        for(Entrada entrada : entradas){
+             muro += "<p>" + entrada + "</p>";
+        }
+        return muro;
+    }
+    
+    public String footerPagina()
+    {
+        String footer = "";
+        footer += "</body></html>";
+        return footer;
     }
 }
 
